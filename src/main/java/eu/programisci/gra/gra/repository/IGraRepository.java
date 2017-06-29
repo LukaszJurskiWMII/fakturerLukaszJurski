@@ -16,7 +16,7 @@ public interface IGraRepository extends JpaRepository<GraOB, Long> {
     @Query("SELECT DISTINCT g " +
             " FROM GraOB g " +
             " LEFT JOIN FETCH g.wydania w " +
-            " WHERE w.rokWydania > :rokWydania ")
+            " WHERE w.rokWydania < :rokWydania ")
     List<GraOB> znajdzStarszeNiz(@Param("rokWydania") Integer rokWydania);
 
     @Query("SELECT g " +
